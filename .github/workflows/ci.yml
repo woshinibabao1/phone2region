@@ -34,5 +34,11 @@ jobs:
         env:
           ORGANIZATION: ali1416
           PROJECT_KEY: ALI1416_phone2region
-          SONAR_TOKEN: ${{secrets.SONAR_TOKEN}}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: mvn sonar:sonar -Dsonar.host.url=https://sonarcloud.io -Dsonar.organization=$ORGANIZATION -Dsonar.projectKey=$PROJECT_KEY -Dsonar.login=$SONAR_TOKEN
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-artifacts
+          path: target/  # 请根据实际情况修改此路径，确保包含所有需要的构建产物
