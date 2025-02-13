@@ -38,7 +38,7 @@ jobs:
         run: mvn sonar:sonar -Dsonar.host.url=https://sonarcloud.io -Dsonar.organization=$ORGANIZATION -Dsonar.projectKey=$PROJECT_KEY -Dsonar.login=$SONAR_TOKEN
 
       - name: Upload build artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: build-artifacts
-          path: target/  # 请根据实际情况修改此路径，确保包含所有需要的构建产物
+          path: target/  # 根据实际情况调整路径，确保包含所有需要上传的产物
